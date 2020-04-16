@@ -13,14 +13,14 @@ class SearchBar extends Component {
   // eslint-disable-next-line class-methods-use-this
   onInputChange(event) {
     this.setState({ searchterm: event.target.value });
+    this.props.onSearchChange(event.target.value);
     console.log(event.target.value);
   }
 
   render() {
     return (
-      <div>
-        <input onChange={this.onInputChange} />
-        <p> State value: {this.state.searchterm} </p>
+      <div id="search-bar">
+        <input onChange={this.onInputChange} value={this.state.searchterm} />
       </div>
     );
   }
